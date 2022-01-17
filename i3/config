@@ -108,7 +108,7 @@ bindsym $mod+a focus parent
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1: "
 set $ws2 "2: "
-set $ws3 "3: "
+set $ws3 "3: Book"
 set $ws4 "4: Web"
 set $ws5 "5: OBS"
 set $ws6 "6: File"
@@ -193,11 +193,21 @@ bar {
     	}
 }
 
+# MOCP
+exec --no-startup-id mocp -S; mocp -a Music/*; mocp --on shuffle &
+bindsym Ctrl+Mod1+p exec mocp -p
+bindsym Ctrl+Mod1+g exec mocp -G
+bindsym Ctrl+Mod1+f exec mocp -f 
+
+
 bindsym Print exec flameshot gui
+bindsym $mod+Shift+f exec --no-startup-id firefox
 for_window [class="^.*"] border pixel 0
 exec_always --no-startup-id compton -b
 exec_always --no-startup-id feh --bg-fill /home/q/.system/wallpapers/firewatch.png &
-exec_always --no-startup-id setxkbmap -layout us,ru -option grp:win_space_toggle &
-
-
-
+exec_always --no-startup-id setxkbmap -layout "us,ru" -option "grp:win_space_toggle" &
+exec_always --no-startup-id screenkey &
+assign [class="Firefox-esr"] "4: Web"
+assign [class="Pcmanfm"] "6: File"
+assign [class="Evince"] "3: Book"
+assign [class="libreoffice-writer"] "7: Office"
