@@ -146,7 +146,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -194,19 +194,27 @@ bar {
 }
 
 # MOCP
-exec --no-startup-id mocp -S; mocp -a Music/*; mocp --on shuffle &
+exec --no-startup-id mocp -S; mocp -a Music/for_work/*; mocp --on shuffle &
 bindsym Ctrl+Mod1+p exec mocp -p
 bindsym Ctrl+Mod1+g exec mocp -G
 bindsym Ctrl+Mod1+f exec mocp -f 
 
 
+
 bindsym Print exec flameshot gui
 bindsym $mod+Shift+f exec --no-startup-id firefox
+bindsym $mod+Shift+e exec --no-startup-id pcmanfm
+
+bindsym $mod+Shift+F1 exec --no-startup-id screenkey 
+bindsym $mod+Shift+F2 exec --no-startup-id killall screenkey
+
+bindsym XF86MonBrightnessUp exec xbacklight - 10%
+bindsym XF86MonBrightnessDown exec xbacklight + 10%
+
 for_window [class="^.*"] border pixel 0
 exec_always --no-startup-id compton -b
 exec_always --no-startup-id feh --bg-fill /home/q/.system/wallpapers/firewatch.png &
 exec_always --no-startup-id setxkbmap -layout "us,ru" -option "grp:win_space_toggle" &
-exec_always --no-startup-id screenkey &
 assign [class="Firefox-esr"] "4: Web"
 assign [class="Pcmanfm"] "6: File"
 assign [class="Evince"] "3: Book"
