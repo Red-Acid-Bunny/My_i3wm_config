@@ -202,7 +202,7 @@ bindsym Ctrl+Mod1+f exec mocp -f
 
 
 bindsym Print exec flameshot gui
-bindsym $mod+Shift+f exec --no-startup-id firefox
+bindsym $mod+Shift+f exec --no-startup-id qutebrowser
 bindsym $mod+Shift+e exec --no-startup-id pcmanfm
 
 bindsym $mod+Shift+F1 exec --no-startup-id screenkey 
@@ -215,7 +215,7 @@ for_window [class="^.*"] border pixel 0
 exec_always --no-startup-id compton -b
 exec_always --no-startup-id feh --bg-fill /home/q/.system/wallpapers/firewatch.png &
 exec_always --no-startup-id setxkbmap -layout "us,ru" -option "grp:win_space_toggle" &
-assign [class="Firefox-esr"] "4: Web"
+assign [class="qutebrowser"] "4: Web"
 assign [class="Pcmanfm"] "6: File"
 assign [class="Evince"] "3: Book"
 assign [class="libreoffice-writer"] "7: Office"
